@@ -1,0 +1,79 @@
+<extend name="../Public/trainAdminBase" />
+<block name="css">
+	<style type="text/css">
+		pre{
+			white-space: pre-wrap;       
+			white-space: -moz-pre-wrap;  
+			white-space: -pre-wrap;      
+			white-space: -o-pre-wrap;    
+			word-wrap: break-word;  
+		}
+		.mes-row-item{
+			color: #0066FF;
+		}
+		p{
+			font-size: 16px;
+		}
+	</style>
+</block>
+<block name="main">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h2> <{$problemData.title}> </h2>
+		</div>
+	</div>
+	<div class="row text-center">
+		<div class="col-md-12">
+			<span class="mes-row-item">Time Limit: <{$problemData.time_limit}> MS</span>
+			<span class="mes-row-item">Memory Limit: <{$problemData.memory_limit}> K </span>
+		</div>
+	</div>
+	<div class="row text-center">
+		<div class="col-md-12">
+			<span class="mes-row-item">Total Submission(s): <{$problemData.submissions}></span>
+			<span class="mes-row-item">Accepted Submission(s): <{$problemData.accepted}></span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>问题描述</p>
+			<pre><{$problemData.description}></pre>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>输入格式</p>
+			<pre><{$problemData.input}></pre>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>输出格式</p>
+			<pre><{$problemData.output}></pre>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>样例输入</p>
+			<pre><{$problemData.sample_input}></pre>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>样例输出</p>
+			<pre><{$problemData.sample_output}></pre>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>作者</p>
+			<pre><{$problemData.author}></pre>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>来源</p>
+			<pre><{$problemData.source}></pre>
+		</div>
+	</div>
+</block>

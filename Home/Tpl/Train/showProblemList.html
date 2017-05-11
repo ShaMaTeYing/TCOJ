@@ -1,0 +1,47 @@
+<extend name="../Public/trainBase" />
+<block name="trainMain">
+	<div class="col-md-12" style="padding-top: 40px;">
+		<table class="table table-condensed table-striped table-hover">
+			<tr>
+				<th style="width: 12%;">我的状态</th>
+				<th style="text-align:left;">问题标题</th>
+				<th>难度</th>
+				<th>通过率</th>
+			</tr>
+			<volist name='problemData' id='vo'>
+				<tr style="width: 10%;">
+					<td class="tCenter">
+						<eq name="vo.judge_status" value="0">
+							<span class="glyphicon glyphicon-ok success" aria-hidden="true"></span>
+						<else/>
+							<gt name="vo.judge_status" value="0">
+								<span class="glyphicon glyphicon-remove error" aria-hidden="true"></span>
+							</gt>
+						</eq>
+					</td>
+		
+					<td style="text-align:left;"> <a href='__APP__/Train/showProblem/id/<{$vo.id}>/level_msg_id/<{$vo.level_msg_id}>'> <{$vo.title}> </a> </td>
+					<td>
+						<eq name="vo.difficulty" value="0">
+							入门
+						</eq>
+						<eq name="vo.difficulty" value="1">
+							简单
+						</eq>
+						<eq name="vo.difficulty" value="2">
+							一般
+						</eq>
+						<eq name="vo.difficulty" value="3">
+							中等
+						</eq>
+						<eq name="vo.difficulty" value="4">
+							困难
+						</eq>
+						
+					</td>
+					<td><{:getRatio($vo['accepted'],$vo['submissions'])}>% (<{$vo.accepted}>/<{$vo.submissions}>) </td>
+				</tr>
+			</volist>
+		</table>
+	</div>
+</block>

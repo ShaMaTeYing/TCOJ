@@ -1,0 +1,51 @@
+<extend name="../Public/base" />
+<block name="css">
+	<style type="text/css">
+		.my-abstrat{
+			overflow:hidden;
+			text-overflow:ellipsis;
+			-o-text-overflow:ellipsis;
+			white-space:nowrap;
+			width:100%;
+		}
+	</style>
+</block>
+<block name="main">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1><{$levelData.title}></h1>
+			<p><{$levelData.content}></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<volist name="listData" id="vo">
+			<div class="col-md-4" style="border:1px solid #CCCCCC;">
+				<div class="row">
+					<div class="col-md-12">
+						<a href="__APP__/Train/showProblemList/id/<{$vo.id}>">
+							<h4><{$vo.level_title}></h4>
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p>
+							<span><{$vo.level_name}>,共<{$vo.pass_number}>道题。</span>
+							<eq name="vo.status" value="0">
+								<span style="color: red;">可挑战</span>
+							<else/>
+								<span style="color: #C0C0C0;">不可挑战</span>
+							</eq>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 my-abstrat">
+						<{$vo.level_abstract}>
+					</div>
+				</div>
+			</div>
+		</volist>
+	</div>
+</block>

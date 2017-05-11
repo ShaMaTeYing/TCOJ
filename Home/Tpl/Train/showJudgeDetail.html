@@ -1,0 +1,97 @@
+<extend name="../Public/trainBase" />
+<block name="trainMain">
+	<div class="col-md-12s" style="padding-top: 40px;">
+		<div class="judge">
+		
+		<div class="text-center">
+			<h4>题目信息</h4>
+			<span>题目标题：<{$problemData.title}></span>
+			<span>时间限制：<{$problemData.time_limit}></span>
+			<span>内存限制：<{$problemData.memory_limit}></span>
+		</div>
+		<div class="text-center">
+			<h4>用户提交信息</h4>
+			<span>用户昵称：<{$userProblemData.nickname}></span>
+			<span>提交时间：<{$userProblemData.submit_time|date="Y-m-d H:i",###}>
+			
+			</span>
+			<span>提交语言：<{$userProblemData.language}></span>
+			<span>得分：<{$score}></span>
+		</div>
+		<h3 class="text-center">评测详情</h3>
+		<div class="list">
+			<table class="table table-bordered table-striped table-condensed">
+				<tr>
+					<th>测试用例</th>
+					<th>运行时间</th>
+					<th>运行内存</th>
+					<th>评测结果</th>
+					<th>每组得分</th>
+					<eq name="myRoot" value="2">
+						<th>输入数据</th>
+						<th>输出数据</th>	
+					</eq>
+					
+				</tr>
+				<volist name='judgeData' id='vo'>
+					<tr>
+						<td><{$vo.group_id}></td>
+						<td><{$vo.exe_time}> MS</td>
+						<td><{$vo.exe_memory}> KB</td>
+						<td>
+							<eq name="vo.judge_status" value="0">
+								<span class="accepted">Accepted</span>
+							</eq>
+							<eq name="vo.judge_status" value="1">
+								<span class="wrong-answer">Wrong Answer</span>
+							</eq>
+							<eq name="vo.judge_status" value="2">
+								<span class="time-limit-exceeded">Time Limit Exceeded</span>
+							</eq>
+							<eq name="vo.judge_status" value="3">
+								<span class="memeory-limit-exceeded">Memory Limit Exceeded</span>
+							</eq>
+							<eq name="vo.judge_status" value="4">
+								<span class="runtime-error">Runtime Error</span>
+							</eq>
+							<eq name="vo.judge_status" value="5">
+								<span class="compilation-error">Compilation Error</span>
+							</eq>
+							<eq name="vo.judge_status" value="6">
+								<span class="output-limit-exceeded">Output Limit Exceeded</span>
+							</eq>
+							<eq name="vo.judge_status" value="7">
+								<span class="input-limit-exceeded">Input Limit Exceeded</span>
+							</eq>
+							<eq name="vo.judge_status" value="8">
+								<span class="pending">Pending</span>
+							</eq>
+							<eq name="vo.judge_status" value="9">
+								<span class="compiling">Compiling</span>
+							</eq>
+							<eq name="vo.judge_status" value="10">
+								<span class="runing">Runing</span>
+							</eq>
+							<eq name="vo.judge_status" value="11">
+								<span class="runing">Presentation Error</span>
+							</eq>
+						</td>
+						<td><{$vo.score}></td>
+						<eq name="myRoot" value="2">
+							<td>
+								<a href="__APP__/Judge/showTestData/id/<{$vo.id}>/op/0">查看</a>
+							</td>
+							<td>
+								<a href="__APP__/Judge/showTestData/id/<{$vo.id}>/op/1">查看</a>
+							</td>
+						</eq>
+						
+					</tr>
+				</volist>	
+			</table>
+				
+		</div>
+		<div ><{$page}></div>
+	</div>
+	</div>
+</block>

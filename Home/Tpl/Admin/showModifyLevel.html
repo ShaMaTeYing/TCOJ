@@ -1,0 +1,34 @@
+<extend name="../Public/trainAdminBase" />
+<block name="main">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h2>修改等级数据</h2>
+		</div>
+	</div>
+	<form action="__APP__/Admin/modifyLevel" method="post">
+		<input type="hidden" name="id" value="<{$levelData.id}>"/>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<label for="exampleInputEmail1">等级入口标题</label>
+				<input name="entrance_title" type="text" class="form-control" value="<{$levelData.entrance_title}>">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<label for="exampleInputEmail1">等级描述标题</label>
+				<input name="title" type="text" class="form-control" value="<{$levelData.title}>">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<label for="exampleInputEmail1">等级描述内容</label>
+				<textarea name="content" class="form-control" rows="10"><{$levelData.content}></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-md-offset-4">
+				<input class="btn btn-default" type="submit" value="修改">
+			</div>
+		</div>
+	</form>
+</block>

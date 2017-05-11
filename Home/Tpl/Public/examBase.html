@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <link rel="stylesheet" href="__PUBLIC__/bootstrap-3.3.7-dist/css/bootstrap-theme.css" />
+	    <link rel="stylesheet" href="__PUBLIC__/bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<block name="css"></block>
+		<script language="javascript" src="__PUBLIC__/bootstrap-3.3.7-dist/js/jquery-1.12.2.min.js"></script>
+		<script language="javascript" src="__PUBLIC__/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+		<block name="js"></block>
+		<title>
+			<block name="title">
+				TCOJ
+			</block>
+		</title>
+	</head>
+	<body>
+		<block name="header">
+			<include file="../Public/header" />
+		</block>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-2">
+							<a href="#">
+								比赛列表
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a href="#">
+								题目列表
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a href="#">
+								排行榜
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a href="#">
+								评测状态
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a href="__APP__/Train/showBBS">
+								讨论区
+							</a>
+						</div>
+					</div>
+					
+				</div>
+				<block name="main">
+					
+				</block>
+			</div>
+		
+		<block name="footer">
+			<include file="../Public/footer" />
+		</block>
+		
+	</body>
+</html>

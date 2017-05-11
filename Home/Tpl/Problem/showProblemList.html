@@ -1,0 +1,92 @@
+﻿<extend name="../Public/base" />
+<block name="main">
+	<div class="row" style="margin-bottom: 20px;">
+		<form action="__APP__/Problem/showProblemList" method="post">
+			<div class="col-md-4">
+				<input type="text" class="form-control" name="value">
+			</div>
+			<div class="col-md-4">
+				<button class="btn btn-default" type="submit">搜索</button>
+			</div>
+			<br>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<table  class="table table-condensed table-striped table-bordered table-hover text-center">
+				<tr>
+					<th style="width: 15%;" class="text-center">我的状态</th>
+					<th class="text-center">ID</th>
+					<th style="text-align:left;" class="text-center">问题标题</th>
+					<th class="text-center" >难度</th>
+					<th class="text-center">通过率</th>
+				</tr>
+				<volist name='problemData' id='vo'>
+					<tr style="width: 10%;">
+						<td class="tCenter">
+							<eq name="vo.judge_status" value="0">
+								<span class="glyphicon glyphicon-ok" style="color: #009926;" aria-hidden="true"></span>
+							<else/>
+								<gt name="vo.judge_status" value="0">
+									<span class="glyphicon glyphicon-remove" style="color: #CC0000;" aria-hidden="true"></span>
+								</gt>
+							</eq>
+						</td>
+						<td><{$vo.id}> </td>
+						<td style="text-align:left;"> <a href='__APP__/Problem/showProblem/id/<{$vo.id}>'> <{$vo.title}> </a> </td>
+						<td>
+							<eq name="vo.difficulty" value="0">
+								入门
+							</eq>
+							<eq name="vo.difficulty" value="1">
+								简单
+							</eq>
+							<eq name="vo.difficulty" value="2">
+								一般
+							</eq>
+							<eq name="vo.difficulty" value="3">
+								中等
+							</eq>
+							<eq name="vo.difficulty" value="4">
+								困难
+							</eq>
+							
+						</td>
+						<td><{:getRatio($vo['accepted'],$vo['submissions'])}>% (<{$vo.accepted}>/<{$vo.submissions}>) </td>
+					</tr>
+				</volist>
+				
+				</table>
+				<div class="row">
+			    	<div class="col-md-12">
+			    		<div class="text-center"><{$page}></div>
+			    	</div>
+			    </div>
+		</div>
+		<div class="col-md-3">
+			<div class="label-heading">
+					<h3 class="label-title">
+						<span class="glyphicon glyphicon-tag" style="color:#008000" aria-hidden="true"></span>
+						分类
+					</h3>
+				</div>
+				<table class="table-hover table table-condensed">
+					<volist name='labelData' id='vo'>
+						<tr>
+						<gt name="vo.problem_number" value="0">
+							<td >
+								<a href="__APP__/Problem/showProblemList/label_id/<{$vo.label_id}>">
+									<{$vo.label_name}>
+								</a>
+							</td>
+							
+							<td><{$vo.problem_number}></td>
+						</gt>
+						</tr>
+					</volist>
+				</table>
+		</div>
+	</div>
+    
+		
+</block>

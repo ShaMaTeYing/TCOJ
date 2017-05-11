@@ -1,0 +1,40 @@
+<extend name="../Public/trainAdminBase" />
+<block name="main">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h2>新增任务</h2>
+		</div>
+	</div>
+	<form action="__APP__/Admin/addTask" method="post">
+		<input type="hidden" name="id" value="<{$levelMsgId}>"/>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<label for="exampleInputEmail1">任务标题</label>
+				<input name="level_title" type="text" class="form-control" ">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<label for="exampleInputEmail1">任务摘要</label>
+				<textarea name="level_abstract" class="form-control" rows="10"></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<label for="exampleInputEmail1">关卡名字</label>
+				<input name="level_name" type="text" class="form-control" ">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<label for="exampleInputEmail1">通关最少题数</label>
+				<input name="least_pass_number" type="text" class="form-control" ">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-md-offset-4">
+				<input class="btn btn-default" type="submit" value="提交">
+			</div>
+		</div>
+	</form>
+</block>

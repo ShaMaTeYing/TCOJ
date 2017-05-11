@@ -1,0 +1,40 @@
+<extend name="../Public/base" />
+<block name="main">
+	<div class="row" style="margin-bottom: 20px;">
+		<form action="__APP__/Admin/showAllUserRank" method="post">
+			<div class="col-md-4">
+				<input type="text" class="form-control"  name="sort_param">
+			</div>
+			<div class="col-md-4">
+				<button class="btn btn-default" type="submit">搜索</button>
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table  class="table table-condensed table-striped table-bordered text-center table-hover">
+				<tr>
+					<th class="text-center">昵称</th>
+					<th class="text-center">解决问题总数</th>
+					<th class="text-center">总提交数</th>
+					<th class="text-center">AC率</th>
+					<th class="text-center">排名</th>
+				</tr>
+				<volist name='list' id='vo'>
+					<tr>
+						<td> <a href="__APP__/User/showUserMessage/id/<{$vo.id}>"><{$vo.nickname}> </a></td>
+						<td> <{$vo.solve_problem}>  </td>
+						<td> <{$vo.submissions}>  </td>
+						<td><{:getRatio($vo['solve_problem'],$vo['submissions'])}>% (<{$vo.solve_problem}>/<{$vo.submissions}>) </td>
+						<td> <{$vo.rank}> </td>
+					</tr>
+				</volist>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="text-center"><{$page}></div>
+		</div>
+	</div>
+</block>
